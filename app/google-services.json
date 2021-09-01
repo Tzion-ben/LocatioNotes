@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "345790473132",
+    "project_id": "locationotes",
+    "storage_bucket": "locationotes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345790473132:android:ab7df79424027da5dd9009",
+        "android_client_info": {
+          "package_name": "application.locationotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "345790473132-pasufrs9q8i10q82ovddpnljn1on2h59.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTPZTxsrVZUTQmCmtCEh5EsWOoulrhOuU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "345790473132-pasufrs9q8i10q82ovddpnljn1on2h59.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

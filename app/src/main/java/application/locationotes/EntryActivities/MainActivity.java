@@ -19,12 +19,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*will lead the user to login page*/
+        /**will lead the user to login page*/
         findViewById(R.id.login_main_activity_button).setOnClickListener(view -> {
             startActivity(new Intent(this, LoginActivity.class));
         });
 
-        /*will lead the user to signup page*/
+        /**will lead the user to signup page*/
         findViewById(R.id.signup_main_activity_butten).setOnClickListener(view -> {
             startActivity(new Intent(this, SignupActivity.class));
         });

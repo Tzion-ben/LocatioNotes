@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LocatioNotes">
-        <activity android:name=".EntryActivities.SignupActivity"></activity>
+        <activity android:name=".NotesActivities.MainUserActivity"></activity>
+        <activity android:name=".EntryActivities.SignupActivity" />
         <activity android:name=".EntryActivities.LoginActivity" />
         <activity android:name=".EntryActivities.MainActivity">
             <intent-filter>

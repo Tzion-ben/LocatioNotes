@@ -4,13 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EntryActivities.LoginActivity">
+    tools:context=".NotesActivities.MainUserActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="358dp"
-        android:layout_height="216dp"
-        app:srcCompat="@drawable/login_icon_login_activity"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,11 +7,11 @@ package application.locationotes.EntryActivities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
+
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -26,14 +26,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 import application.locationotes.DataObjects.Personal.UserDetails;
-import application.locationotes.NotesActivities.MainUserActivity;
+import application.locationotes.NotesActivities.General.MainUserActivity;
 import application.locationotes.R;
 
 public class SignupActivity extends AppCompatActivity {
@@ -41,7 +40,8 @@ public class SignupActivity extends AppCompatActivity {
     private EditText firstName, lastName, email, password;
     private TextView mainMessege;
     private UserDetails newUser;
-    private boolean isExist = false; /*will help to go to the right activity*/
+    private boolean isExist = false; /**will help to go to the right activity*/
+    private boolean isBadEmail = false; /**will help to go to the right activity*/
 
     /**for the progressBar timer*/
     private Timer progressbarTimer;
@@ -68,7 +68,7 @@ public class SignupActivity extends AppCompatActivity {
         lastName = (EditText)findViewById(R.id.last_name_signup_activity);
         email = (EditText)findViewById(R.id.email_signup_activity);
         password = (EditText)findViewById(R.id.password_signup_activity);
-        progressBar = findViewById(R.id.progressBar_signUp_signup_activity);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar_signUp_signup_activity);
         mainMessege= (TextView)findViewById(R.id.fill_in_text_signup_activity);
 
         /**clicked the signUp button*/
@@ -92,6 +92,7 @@ public class SignupActivity extends AppCompatActivity {
             /**will check if the user is already exist*/
             dbRootRef.orderByChild("email").equalTo(emailIn).addListenerForSingleValueEvent(new ValueEventListener() {
 
+                @SuppressLint("SetTextI18n")
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if(snapshot.getChildrenCount() != 0){
@@ -101,7 +102,6 @@ public class SignupActivity extends AppCompatActivity {
                         /**no such user. will create a new one*/
                     }else{
                         newUser = new UserDetails(emailIn,firstNameIn,lastNameIn,passwordIn);
-                        Toast.makeText(SignupActivity.this,"WELCOME "+firstNameIn+" "+lastNameIn+" !",Toast.LENGTH_LONG).show();
                     }
 
                     firstName.setVisibility(view.GONE);
@@ -116,7 +116,8 @@ public class SignupActivity extends AppCompatActivity {
                     if(!isExist){
                         /**will add to all DB*/
                         signUpNewUserToDB();
-                        mainMessege.setText("We sent you a verification E-mail, you have to verify it's before login");
+                        mainMessege.setText("We check your E-mail address and if it's valis we will " +
+                                "sent you a verification E-mail, you have to verify it's before login");
                         mainMessege.setTextSize(22);
                     }else {
                         mainMessege.setText("The user is already exist, Login page will open");
@@ -156,9 +157,18 @@ public class SignupActivity extends AppCompatActivity {
 
     /**open the next activity*/
     private void openNextActivity(boolean isExist) {
-        if (isExist) { startActivity(new Intent(this, LoginActivity.class)); }
-        /**else -->*/
-        startActivity(new Intent(this, MainUserActivity.class));
+        if (isExist || !isBadEmail) {
+            startActivity(new Intent(this, LoginActivity.class));
+            runOnUiThread(() -> Toast.makeText(getApplicationContext(),"User already exist, you can logIn",Toast.LENGTH_LONG).show());
+        }
+        else if(isBadEmail) {
+            startActivity(new Intent(this, SignupActivity.class));
+            runOnUiThread(() -> Toast.makeText(getApplicationContext(),"Bad E-mail address, please try again",Toast.LENGTH_LONG).show());
+        }
+        else{
+            startActivity(new Intent(this, LoginActivity.class));
+            runOnUiThread(() -> Toast.makeText(getApplicationContext(),"successfully Signed Up, now you have to Login !",Toast.LENGTH_LONG).show());
+        }
     }
 
     /**will add the user to FireBase DB*/
@@ -177,11 +187,7 @@ public class SignupActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                 }
                             });
-
-                        }else{
-                            Toast.makeText(SignupActivity.this, "Incorrect email. please try again",Toast.LENGTH_LONG).show();
-                            return;
-                        }
+                        }else{isBadEmail = true;}
                     }
                 });
     }

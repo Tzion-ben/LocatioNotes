@@ -21,15 +21,15 @@ public class LoginData implements Serializable {
     public String getEmail() {return email; }
     public String getPassword() {return password;}
 
-    /*will help to check the correctness of the user*/
-    @Override
-    public boolean equals(@Nullable Object obj){
-        if(obj instanceof LoginData){
-            LoginData loginData = (LoginData) obj;
-            if(this.email.equals(loginData.email) && this.password.equals(loginData.password)){return true;}
-            return false;
-        }
-        return false;
-    }
+//    /*will help to check the correctness of the user*/
+//    @Override
+//    public boolean equals(@Nullable Object obj){
+//        if(obj instanceof LoginData){
+//            LoginData loginData = (LoginData) obj;
+//            if(this.email.equals(loginData.email) && this.password.equals(loginData.password)){return true;}
+//            return false;
+//        }
+//        return false;
+//    }
 }
 

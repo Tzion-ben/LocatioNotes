@@ -7,13 +7,16 @@ package application.locationotes.EntryActivities;
  */
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import application.locationotes.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Toolbar mainToolBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, LoginActivity.class));
         });
 
-        /**will lead the user to signup page*/
+        /**will lead the user to signUp page*/
         findViewById(R.id.signup_main_activity_butten).setOnClickListener(view -> {
             startActivity(new Intent(this, SignupActivity.class));
         });

@@ -12,6 +12,8 @@ public class UserDetails {
     private String password;
     private int numberOfNotes;
 
+    private String profileImageUri;
+
     private int SET_ID;
 
     /*generated automatically by Google Firebase*/
@@ -26,6 +28,8 @@ public class UserDetails {
         this.GOOGLE_ID = null;
         numberOfNotes = 0;
 
+        this.profileImageUri = null;
+
         SET_ID = 0;
     }
 
@@ -36,6 +40,7 @@ public class UserDetails {
     public String getPassword() {return password;}
     public String getGOOGLE_ID() {return GOOGLE_ID;}
     public int getNumberOfNotes() {return numberOfNotes;}
+    public String getProfileImageUri() {return profileImageUri;}
 
     public void setGOOGLE_ID(String GOOGLE_ID) {
         /**can set it ONLY ONCE, at creation*/

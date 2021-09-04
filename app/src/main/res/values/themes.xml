@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.LocatioNotes" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.LocatioNotes" parent="Theme.AppCompat.Light">
         <item name="android:windowBackground">@drawable/mountain_rock_background</item>
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/black_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -12,6 +12,17 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
         <!-- Customize your theme here. -->
+    </style>
+    <style name="TextAppearance.AppCompat.Widget.ActionBar.Title"
+        parent="@android:style/TextAppearance">
+        <item name="android:textSize" > 36dp</item>
+        <item name="android:textColor" > @color/browser_actions_bg_grey</item>
+        <item name="android:fontFamily" > @string/bottom_sheet_behavior</item>
+
+
+
+
     </style>
 </resources>

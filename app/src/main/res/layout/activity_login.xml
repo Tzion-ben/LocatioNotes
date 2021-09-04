@@ -6,11 +6,130 @@
     android:layout_height="match_parent"
     tools:context=".EntryActivities.LoginActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="358dp"
-        android:layout_height="216dp"
-        app:srcCompat="@drawable/login_icon_login_activity"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="16dp" />
+    <Button
+        android:id="@+id/go_to_signUp_button_login_activity"
+        android:layout_width="185dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/holo_red_dark"
+        android:backgroundTintMode="screen"
+
+        android:text="@string/no_have_account"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/signin_button_login_activity"
+        app:layout_constraintStart_toStartOf="@+id/signin_button_login_activity"
+        app:layout_constraintTop_toBottomOf="@+id/signin_button_login_activity" />
+
+    <Button
+        android:id="@+id/forget_password_button_login_activity"
+        android:layout_width="219dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/holo_red_dark"
+        android:backgroundTintMode="screen"
+        android:text="@string/forget_password"
+
+        android:textColor="@android:color/darker_gray"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/signin_button_login_activity"
+        app:layout_constraintEnd_toEndOf="@+id/password_login_activity"
+
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/password_login_activity"
+        app:layout_constraintTop_toBottomOf="@+id/password_login_activity"
+        app:layout_constraintVertical_bias="0.07" />
+
+    <Button
+        android:id="@+id/signin_button_login_activity"
+        android:layout_width="383dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="60dp"
+        android:background="@android:color/black"
+        android:backgroundTintMode="screen"
+        android:text="@string/login_start"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/password_login_activity"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/password_login_activity"
+        app:layout_constraintTop_toBottomOf="@+id/password_login_activity"
+        app:layout_constraintVertical_bias="0.028" />
+
+    <TextView
+        android:id="@+id/login_welcome_login_activity"
+        android:layout_width="265dp"
+        android:layout_height="99dp"
+        android:text="@string/login_welcome"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.128" />
+
+    <TextView
+        android:id="@+id/sign_In_login_activity"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/Sign_In"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/login_welcome_login_activity"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_welcome_login_activity" />
+
+    <EditText
+        android:id="@+id/email_login_activity"
+        android:layout_width="389dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="30dp"
+        android:background="#E1423E11"
+
+        android:backgroundTint="@android:color/darker_gray"
+        android:backgroundTintMode="screen"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:textColor="#070303"
+        app:layout_constraintEnd_toEndOf="@+id/sign_In_login_activity"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/sign_In_login_activity"
+        app:layout_constraintTop_toBottomOf="@+id/sign_In_login_activity" />
+
+    <EditText
+        android:id="@+id/password_login_activity"
+        android:layout_width="389dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="17dp"
+        android:background="#E1423E11"
+        android:backgroundTint="@android:color/darker_gray"
+        android:backgroundTintMode="screen"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textColor="#070303"
+        app:layout_constraintEnd_toEndOf="@+id/email_login_activity"
+        app:layout_constraintStart_toStartOf="@+id/email_login_activity"
+        app:layout_constraintTop_toBottomOf="@+id/email_login_activity" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_login_activity"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="231dp"
+        android:layout_height="232dp"
+        android:layout_marginTop="68dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_welcome_login_activity"
+        app:layout_constraintVertical_bias="0.29" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

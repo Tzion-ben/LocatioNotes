@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">LocatioNotes</string>
+    <string name="bottom_menu_click_list_mode">List Mode</string>
+    <string name="bottom_menu_click_map_mode">Map Mode</string>
+    <string name="bottom_menu_click_logout">Log Out</string>
+
+    <string name="Welcome_To_the_app">Welcome To LocatioNotes</string>
+    <string name="login">Login</string>
+    <string name="no_have_account">Don\'t Have An Account Yet !? CLICK HERE TO SIGNUP</string>
+
+    <string name="login_welcome">Hello There, Welcome Back</string>
+    <string name="Sign_In">Sign In To Continue</string>
+    <string name="login_start">GO</string>
+    <string name="forget_password">FORGET PASSWORD? Click Here</string>
+
+
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="email">E-main</string>
+    <string name="password">Password</string>
+    <string name="singUp">signUp</string>
+    <string name="signUp_to_start">SignUp to start your new </string>
+
+    <string name="add_profile_picture"><![CDATA[Click on the black camera in the left side to add a profile picture —> ]]></string>
+
 </resources>

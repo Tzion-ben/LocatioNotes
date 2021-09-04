@@ -4,6 +4,104 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NotesActivities.MainUserActivity">
+    tools:context=".NotesActivities.General.MainUserActivity">
 
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_menu_main_user_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation" />
+
+    <TextView
+        android:id="@+id/welcome_massage_to_user_mainUser_activity"
+        android:layout_width="355dp"
+        android:layout_height="94dp"
+        android:textColor="@color/black_500"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025" />
+
+    <ImageView
+        android:id="@+id/personal_image_main_user_activity"
+        android:layout_width="292dp"
+        android:layout_height="248dp"
+        android:layout_marginTop="131dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icon_person_main_user_activity_24"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_menu_main_user_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/welcome_massage_to_user_mainUser_activity"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/take_picture_main_user_button"
+        android:layout_width="60dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginBottom="180dp"
+        android:background="@drawable/icon_add_a_photo__main_user_activity_24"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_menu_main_user_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.871"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/personal_image_main_user_activity" />
+
+    <TextView
+        android:id="@+id/click_on_add_picture_main_user_activity"
+        android:layout_width="240dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="14dp"
+        android:background="@android:color/darker_gray"
+        android:text="@string/add_profile_picture"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/floating_action_button_main_user_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/personal_image_main_user_activity"
+        app:layout_constraintVertical_bias="0.113" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button_main_user_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+
+        android:layout_marginBottom="56dp"
+        android:src="@drawable/icon_note_add_main_user_activity_24"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_menu_main_user_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.873"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/take_picture_main_user_button" />
+
+    <TextView
+        android:id="@+id/show_number_of_notes_main_user_activity"
+        android:layout_width="240dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="26dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_menu_main_user_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/click_on_add_picture_main_user_activity" />
 </androidx.constraintlayout.widget.ConstraintLayout>

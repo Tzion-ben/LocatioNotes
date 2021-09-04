@@ -3,6 +3,8 @@
     package="application.locationotes">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LocatioNotes">
-        <activity android:name=".NotesActivities.MainUserActivity"></activity>
+        <activity android:name=".EntryActivities.ForgetPassword"></activity>
+        <activity android:name=".NotesActivities.Notes.NewNode" />
+        <activity android:name=".NotesActivities.Notes.MapMode" />
+        <activity android:name=".NotesActivities.Notes.ListMode" />
+        <activity android:name=".NotesActivities.General.MainUserActivity" />
         <activity android:name=".EntryActivities.SignupActivity" />
         <activity android:name=".EntryActivities.LoginActivity" />
         <activity android:name=".EntryActivities.MainActivity">

@@ -8,8 +8,8 @@
 
     <Button
         android:id="@+id/go_to_signUp_button_login_activity"
-        android:layout_width="185dp"
-        android:layout_height="43dp"
+        android:layout_width="186dp"
+        android:layout_height="61dp"
         android:layout_marginTop="40dp"
         android:background="@android:color/holo_red_dark"
         android:backgroundTintMode="screen"

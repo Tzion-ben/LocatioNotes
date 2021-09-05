@@ -7,7 +7,6 @@ package application.locationotes.EntryActivities;
  */
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +15,6 @@ import application.locationotes.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar mainToolBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,11 +22,13 @@ public class MainActivity extends AppCompatActivity {
 
         /**will lead the user to login page*/
         findViewById(R.id.login_main_activity_button).setOnClickListener(view -> {
+            finish();
             startActivity(new Intent(this, LoginActivity.class));
         });
 
         /**will lead the user to signUp page*/
         findViewById(R.id.signup_main_activity_butten).setOnClickListener(view -> {
+            finish();
             startActivity(new Intent(this, SignupActivity.class));
         });
     }

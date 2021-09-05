@@ -13,6 +13,25 @@
     <string name="login_start">GO</string>
     <string name="forget_password">FORGET PASSWORD? Click Here</string>
 
+    <string name="notes_list">My Notes</string>
+    <string name="add_new_note">ADD NEW NODE</string>
+    <string name="add_new_note_title">Title</string>
+    <string name="add_new_note_description">Description</string>
+    <string name="add_new_note_save_note">SAVE NOTE</string>
+
+    <string name="edit_new_note">EDIT NODE</string>
+    <string name="edit_new_note_title">Title</string>
+    <string name="edit_new_note_description">Description</string>
+    <string name="edit_new_note_save_note">SAVE NOTE</string>
+
+    <string name="click_on_plus">Click on PLUS button to create a Note</string>
+
+    <string name="delete_note">Deleting your note, please wait</string>
+    <string name="delete_note_num">Enter the title of the note to delete</string>
+    <string name="delete_button">DELETE</string>
+    <string name="delete_note_chose">Click here to delete some Note</string>
+
+    <string name="edit_note">EDIT NOTE</string>
 
     <string name="last_name">Last Name</string>
     <string name="first_name">First Name</string>
@@ -22,5 +41,6 @@
     <string name="signUp_to_start">SignUp to start your new </string>
 
     <string name="add_profile_picture"><![CDATA[Click on the black camera in the left side to add a profile picture —> ]]></string>
+    <string name="title_activity_map_mode">Map</string>
 
 </resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:layout_marginBottom="10dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <TextView
+        android:id="@+id/title_output_one_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="My title"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/description_output_one_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_alignParentBottom="@+id/title_output_one_item"
+        tools:text="My description"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+
+        android:background="@android:color/darker_gray"
+      />
+
+    <TextView
+        android:id="@+id/time_output_one_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Aug 31 2021"
+        android:layout_below="@+id/description_output_one_item"
+        android:textColor="@android:color/black"
+        android:background="@android:color/darker_gray"
+        android:textSize="12sp"
+        android:gravity="right" />
+
+</RelativeLayout>

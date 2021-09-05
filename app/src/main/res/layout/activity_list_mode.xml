@@ -6,4 +6,78 @@
     android:layout_height="match_parent"
     tools:context=".NotesActivities.Notes.ListMode">
 
+    <Button
+        android:id="@+id/delete_note_button_list_mode_activity"
+        android:layout_width="380dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/shaped_corner"
+        android:text="@string/delete_note_chose"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list_of_notes_list_mode_activity" />
+
+    <TextView
+        android:id="@+id/my_notes_list_mode_activity"
+        android:layout_width="130dp"
+        android:layout_height="39dp"
+        android:background="@drawable/shaped_corner"
+        android:text="@string/notes_list"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_of_notes_list_mode_activity"
+        android:layout_width="396dp"
+        android:layout_height="448dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_notes_list_mode_activity" />
+
+    <Button
+        android:id="@+id/add_new_note_button_list_mode_activity"
+        android:layout_width="185dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="11dp"
+        android:background="@drawable/shaped_corner"
+        android:text="@string/add_new_note"
+        app:layout_constraintBottom_toTopOf="@+id/delete_note_button_list_mode_activity"
+        app:layout_constraintEnd_toEndOf="@+id/delete_note_button_list_mode_activity"
+        app:layout_constraintStart_toEndOf="@+id/edit_note_button_list_mode_activity"
+        app:layout_constraintTop_toBottomOf="@+id/list_of_notes_list_mode_activity" />
+
+    <Button
+        android:id="@+id/edit_note_button_list_mode_activity"
+        android:layout_width="185dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="11dp"
+        android:background="@drawable/shaped_corner"
+        android:text="@string/edit_note"
+        app:layout_constraintBottom_toTopOf="@+id/delete_note_button_list_mode_activity"
+        app:layout_constraintStart_toStartOf="@+id/delete_note_button_list_mode_activity"
+        app:layout_constraintTop_toBottomOf="@+id/list_of_notes_list_mode_activity" />
+
+    <TextView
+        android:id="@+id/num_of_notes_list_mode_activity"
+        android:layout_width="299dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/shaped_corner"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/list_of_notes_list_mode_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_notes_list_mode_activity" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

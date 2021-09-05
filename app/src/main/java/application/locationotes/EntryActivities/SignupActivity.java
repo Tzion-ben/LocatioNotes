@@ -52,6 +52,7 @@ public class SignupActivity extends AppCompatActivity {
     private FirebaseDatabase dbRoot;
     private DatabaseReference dbRootRef;
     private FirebaseAuth dbAuthentication;
+    private static final String USERS_NOTES = "UsersNotes";
     private static final String USERS = "Users";
 
     @Override
@@ -61,7 +62,7 @@ public class SignupActivity extends AppCompatActivity {
 
         /**DB connection*/
         dbRoot = FirebaseDatabase.getInstance();
-        dbRootRef = dbRoot.getReference(USERS);
+        dbRootRef = dbRoot.getReference();
         dbAuthentication = FirebaseAuth.getInstance();
 
         firstName = (EditText)findViewById(R.id.first_name_signup_activity);
@@ -116,7 +117,7 @@ public class SignupActivity extends AppCompatActivity {
                     if(!isExist){
                         /**will add to all DB*/
                         signUpNewUserToDB();
-                        mainMessege.setText("We check your E-mail address and if it's valis we will " +
+                        mainMessege.setText("We checking your E-mail address and if it's valis we will " +
                                 "sent you a verification E-mail, you have to verify it's before login");
                         mainMessege.setTextSize(22);
                     }else {
@@ -195,6 +196,7 @@ public class SignupActivity extends AppCompatActivity {
     /**added user details to the real DB */
     private void addToRealDB(String GoogleId){
         this.newUser.setGOOGLE_ID(GoogleId);
-        dbRootRef.child(this.newUser.getGOOGLE_ID()).setValue(this.newUser);
+        dbRootRef.child(USERS).child(this.newUser.getGOOGLE_ID()).setValue(this.newUser);
+        dbRootRef.child(USERS_NOTES).child(this.newUser.getGOOGLE_ID()).child("numOfNotesInAllTime").setValue("0");
     }
 }

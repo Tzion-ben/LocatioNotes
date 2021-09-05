@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -17,7 +18,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,11 +31,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import application.locationotes.DataObjects.Personal.UserDetails;
 import application.locationotes.EntryActivities.MainActivity;
 import application.locationotes.NotesActivities.Notes.ListMode;
+import application.locationotes.NotesActivities.Notes.AddNewNote;
 import application.locationotes.NotesActivities.Notes.MapMode;
-import application.locationotes.NotesActivities.Notes.NewNode;
 import application.locationotes.R;
 
 public class MainUserActivity extends AppCompatActivity {
@@ -46,7 +45,6 @@ public class MainUserActivity extends AppCompatActivity {
     private Intent retrieveData;
 
     private TextView welcomeMassge;
-    private TextView welcomNumOfNotesMassge;
     private ImageView myImage;
     private Uri myImageUri;
 
@@ -65,18 +63,14 @@ public class MainUserActivity extends AppCompatActivity {
         retrieveData = getIntent();
 
         dbRootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String firstName =  snapshot.child(USERS).child(retrieveData.getStringExtra("userGoogleId")).child("firstName").getValue().toString();
                 String lastName =  snapshot.child(USERS).child(retrieveData.getStringExtra("userGoogleId")).child("lastName").getValue().toString();
-                String numOfNotes = snapshot.child(USERS).child(retrieveData.getStringExtra("userGoogleId")).child("numberOfNotes").getValue().toString();
                 welcomeMassge = (TextView) findViewById(R.id.welcome_massage_to_user_mainUser_activity);
                 welcomeMassge.setText("Welcome "+firstName+" "+lastName+" !!");
                 welcomeMassge.setTextSize(40);
-
-                welcomNumOfNotesMassge = (TextView) findViewById(R.id.show_number_of_notes_main_user_activity);
-                welcomNumOfNotesMassge.setText("You have: "+numOfNotes+" notes, click on PLUS button for more");
-                welcomNumOfNotesMassge.setTextSize(24);
             }
 
             @Override
@@ -85,7 +79,8 @@ public class MainUserActivity extends AppCompatActivity {
 
         /**floating action button*/
         findViewById(R.id.floating_action_button_main_user_activity).setOnClickListener(view -> {
-            startActivity(new Intent(this, NewNode.class));
+            startActivity(new Intent(this, AddNewNote.class)
+                    .putExtra("userGoogleId",retrieveData.getStringExtra("userGoogleId")));
             });
 
         myImage = findViewById(R.id.personal_image_main_user_activity);
@@ -112,11 +107,13 @@ public class MainUserActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.nav_list_mode: {
-                        startActivity(new Intent(getApplicationContext(), ListMode.class));
+                        startActivity(new Intent(getApplicationContext(), ListMode.class)
+                                .putExtra("userGoogleId",retrieveData.getStringExtra("userGoogleId")));
                         return true;
                     }
                     case R.id.nav_map_mode: {
-                        startActivity(new Intent(getApplicationContext(), MapMode.class));
+                        startActivity(new Intent(getApplicationContext(), MapMode.class)
+                                .putExtra("userGoogleId",retrieveData.getStringExtra("userGoogleId")));
                         return true;
                     }
                     case R.id.nav_logout: {
@@ -150,9 +147,8 @@ public class MainUserActivity extends AppCompatActivity {
         if (requestCode == RESULT_OK) {
             myImage.setImageURI(myImageUri);
 
-
-//        /**write the uri to users details*/
-//        dbRootRef.child.(this.newUser.getGOOGLE_ID()).child("profilePictureUri").setValue(myImageUri.toString());
+        /**write the uri to users details*/
+        dbRootRef.child(USERS).child(retrieveData.getStringExtra("userGoogleId")).setValue(myImageUri.toString());
         }
     }
 
@@ -167,7 +163,7 @@ public class MainUserActivity extends AppCompatActivity {
                     openCamera();
                 } else {
                     /**user NOT let the permission to the access camera*/
-                    Toast.makeText(this, "Permission denieded", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Permission denied", Toast.LENGTH_LONG).show();
                 }
         }
     }

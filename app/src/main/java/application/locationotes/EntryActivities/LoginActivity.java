@@ -108,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    /***/
+    /**sign in with firebase Authentication*/
     public void signInToDB(){
         /**checking if the user is current. if sign In is succeed so yes*/
         dbAuthentication.signInWithEmailAndPassword(loginDataFromInput.getEmail(), loginDataFromInput.getPassword())
@@ -117,10 +117,20 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             FirebaseUser currentUser = dbAuthentication.getCurrentUser();
-                            startActivity(new Intent(getApplicationContext(), MainUserActivity.class)
-                                    .putExtra("userGoogleId",currentUser.getUid()));
+                            if(currentUser.isEmailVerified()) {
+                                finish();
+                                startActivity(new Intent(getApplicationContext(), MainUserActivity.class)
+                                        .putExtra("userGoogleId", currentUser.getUid()));
+                            }
+                            else{
+                                runOnUiThread(() ->Toast.makeText(LoginActivity.this,"E-mail was not verified ",Toast.LENGTH_LONG).show());
+                                dbAuthentication.signOut();
+                                finish();
+                                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                            }
                         } else {
                             runOnUiThread(() ->Toast.makeText(LoginActivity.this,"Not Valid User Or Password, please try again",Toast.LENGTH_LONG).show());
+                            finish();
                             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         }
                     }

@@ -136,9 +136,4 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
-
-    @Override
-    public void onBackPressed() {
-        startActivity(new Intent(this, MainActivity.class));
-    }
 }
